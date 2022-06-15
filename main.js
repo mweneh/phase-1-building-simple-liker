@@ -3,6 +3,30 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+const like = document.querySelectorAll('.like-gylph')
+like.addEventListener('click',myLikecallback)
+
+function myLikecallback(event){
+  let heart=event.target;
+
+   mimicServerCall('localURL')
+    .then (()=>{
+      if (heart.innerText=== EMPTY_HEART) {
+        heart.innerText= FULL_HEART
+        heart.className= 'activated-heart'
+      }
+      else {
+        heart.innerText= EMPTY_HEART
+        heart.className = ''
+      }
+    })
+    .catch(()=> {
+      let modal= document.getElementById('modal')
+      modal.className= ''
+      modal.innerText= error
+      setTimeout(()=> modal.className = 'hidden', 3000)
+    })
+}
 
 
 
