@@ -5,7 +5,7 @@ const FULL_HEART = '♥'
 // Your JavaScript code goes here!
 const like = document.querySelectorAll('.like-gylph')
 
-for (a of like) {
+for (const a of like) {
     a.addEventListener('click',myLikecallback)
 }
 
